@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     private var presenter: PresentableInput!
 
@@ -36,7 +36,7 @@ protocol PresentableOutput: AnyObject {
     func reloadView()
 }
 
-class Presenter: PresentableInput {
+final class Presenter: PresentableInput {
 
     private weak var view: PresentableOutput!
     private var model: ModelInput
@@ -58,7 +58,7 @@ protocol ModelInput {
     func fetch(completion: @escaping () -> ())
 }
 
-class Model: ModelInput {
+final class Model: ModelInput {
     func fetch(completion: @escaping () -> ()) {
         //API用のModuleがあれば、そっちに処理を任せ、結果だけここで受け取りPresenterへ返す
         completion()
